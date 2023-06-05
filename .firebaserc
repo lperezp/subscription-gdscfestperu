@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "gdsc-peru"
+  },
+  "targets": {},
+  "etags": {
+    "gdsc-peru": {}
+  }
+}
