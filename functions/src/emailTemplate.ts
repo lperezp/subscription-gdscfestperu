@@ -45,7 +45,7 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                             <td class="m_-2259358181362946609fs64"
                                                 style="font: 400 64px / 78px 'Google Sans', Arial, sans-serif; height: 85px;">
                                                 <span style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;">¡Y estás dentro!</span> </span>
+                                                        style="vertical-align: inherit;">¡Ya estás dentro!</span> </span>
                                             </td>
                                         </tr>
                                         <tr style="height: 74.2969px;">
