@@ -1,7 +1,7 @@
 export const emailTemplate = (username: string, linkTicket: string) =>
     `
 <table id="bodyTable"
-    style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 100%; margin: 0; padding: 0; width: 100%; background-color: #fafafa;"
+    style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 100%; margin: 0; padding: 0; width: 100%; background-color: #DADCE0;"
     border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
     <tbody>
         <tr>
