@@ -98,3 +98,40 @@ exports.getAssistants = functions.https.onRequest((req, res) => {
         res.status(404).json({ error: 'No está registrado.' });
     }
 });
+
+exports.getAllAssistants = functions.https.onRequest((req, res) => {
+    try {
+        let totalAssistants = 0;
+        let totalAssistantsLima = 0;
+        let totalAssistantsPiura = 0;
+        let totalAssistantsIca = 0;
+        corsHandler(req, res, async () => {
+            const assistantsRef = db.collection('assistants');
+            await assistantsRef
+                .where('event', '==', 'GDSC Fest Lima')
+                .get().then((querySnapshot) => {
+                    totalAssistantsLima = querySnapshot.size
+                });
+            await assistantsRef
+                .where('event', '==', 'GDSC Fest Ica')
+                .get().then((querySnapshot) => {
+                    totalAssistantsIca = querySnapshot.size
+                });
+            await assistantsRef
+                .where('event', '==', 'GDSC Fest Piura')
+                .get().then((querySnapshot) => {
+                    totalAssistantsPiura = querySnapshot.size
+                });
+            totalAssistants = totalAssistantsLima + totalAssistantsIca + totalAssistantsPiura
+            const data = {
+                'totalAssistantsLima': totalAssistantsLima,
+                'totalAssistantsIca': totalAssistantsIca,
+                'totalAssistantsPiura': totalAssistantsPiura,
+                'totalAssistants': totalAssistants
+            }
+            res.json(data);
+        });
+    } catch (error) {
+        res.status(404).json({ 'error': error });
+    }
+});
