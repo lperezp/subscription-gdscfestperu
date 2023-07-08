@@ -135,3 +135,44 @@ exports.getAllAssistants = functions.https.onRequest((req, res) => {
         res.status(404).json({ 'error': error });
     }
 });
+
+exports.getAllAssistantsxInterest = functions.https.onRequest((req, res) => {
+    try {
+        let totalMovil = 0;
+        let totalWeb = 0;
+        let totalAI = 0;
+        let totalCloud = 0;
+        corsHandler(req, res, async () => {
+            const assistantsRef = db.collection('assistants');
+            await assistantsRef
+                .where('interest', '==', 'Móvil')
+                .get().then((querySnapshot) => {
+                    totalMovil = querySnapshot.size
+                });
+            await assistantsRef
+                .where('interest', '==', 'Web')
+                .get().then((querySnapshot) => {
+                    totalWeb = querySnapshot.size
+                });
+            await assistantsRef
+                .where('interest', '==', 'AI')
+                .get().then((querySnapshot) => {
+                    totalAI = querySnapshot.size
+                });
+            await assistantsRef
+                .where('interest', '==', 'Nube')
+                .get().then((querySnapshot) => {
+                    totalCloud = querySnapshot.size
+                });
+            const data = {
+                'totalMovil': totalMovil,
+                'totalWeb': totalWeb,
+                'totalAI': totalAI,
+                'totalCloud': totalCloud
+            }
+            res.json(data);
+        });
+    } catch (error) {
+        res.status(404).json({ 'error': error });
+    }
+});
