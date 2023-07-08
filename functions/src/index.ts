@@ -176,3 +176,36 @@ exports.getAllAssistantsxInterest = functions.https.onRequest((req, res) => {
         res.status(404).json({ 'error': error });
     }
 });
+
+exports.saveScoreAssistant = functions.https.onRequest((request, response) => {
+    try {
+        const email = request.query.email;
+        let docsSnap: any;
+        let scoreAux = 0;
+        corsHandler(request, response, async () => {
+            const assistantsRef = db.collection('assistants');
+            docsSnap = await assistantsRef
+                .where('email', '==', email)
+                .get();
+            const assistant = docsSnap.docs.map((doc: any) => doc.data());
+            console.log('assistant', assistant);
+            const { score } = request.body;
+            if (assistant.length > 0) {
+                scoreAux = assistant[0].score + score;
+            } else {
+                scoreAux = score;
+            }
+            const data = {
+                score: scoreAux,
+                email
+            };
+            const scoreRef = db.collection('score');
+
+            await scoreRef.doc(`${email}`).set(data);
+            const resp = { 'message': 'Registrado' };
+            response.status(201).json(resp);
+        });
+    } catch (error) {
+        response.status(404).json({ error: 'No está registrado.' });
+    }
+});
