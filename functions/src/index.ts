@@ -99,6 +99,21 @@ exports.getAssistants = functions.https.onRequest((req, res) => {
     }
 });
 
+exports.getAssistantsComplete = functions.https.onRequest((req, res) => {
+    try {
+        let docsSnap: any;
+        corsHandler(req, res, async () => {
+            const dailyFoodRef = db.collection('assistants');
+            docsSnap = await dailyFoodRef
+                .get();
+            const dailyFood = docsSnap.docs.map((doc: any) => doc.data());
+            res.json(dailyFood);
+        });
+    } catch (error) {
+        res.status(404).json({ error: 'No está registrado.' });
+    }
+});
+
 exports.getAllAssistants = functions.https.onRequest((req, res) => {
     try {
         let totalAssistants = 0;
@@ -207,5 +222,27 @@ exports.saveScoreAssistant = functions.https.onRequest((request, response) => {
         });
     } catch (error) {
         response.status(404).json({ error: 'No está registrado.' });
+    }
+});
+
+exports.registerAttendance = functions.https.onRequest(async (request, response) => {
+    try {
+        corsHandler(request, response, async () => {
+            const categoriesRef = db.collection('attendance');
+            const { name, lastName, email, nroDoc, hash, date } = request.body;
+            const data = {
+                name,
+                lastName,
+                email,
+                nroDoc,
+                hash,
+                date
+            };
+            await categoriesRef.doc(data.email).set(data);
+            const resp = { 'message': 'Registrado', 'hash': hash };
+            response.status(201).json(resp);
+        });
+    } catch (error) {
+        response.status(503).json({ message: `${error}` });
     }
 });
