@@ -246,3 +246,22 @@ exports.registerAttendance = functions.https.onRequest(async (request, response)
         response.status(503).json({ message: `${error}` });
     }
 });
+
+
+// Add event ai developer day
+exports.addSubscriberGDGCallao = functions.https.onRequest(async (request, response) => {
+    try {
+        corsHandler(request, response, async () => {
+            const categoriesRef = db.collection('subscribers-callao');
+            const { mail, date } = request.body;
+            const data = {
+                mail,
+                date
+            };
+            await categoriesRef.doc(data.mail).set(data);
+            response.status(201).json({ message: 'Registrado' });
+        });
+    } catch (error) {
+        response.status(503).json({ message: `${error}` });
+    }
+});
