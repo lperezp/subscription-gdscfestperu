@@ -265,3 +265,74 @@ exports.addSubscriberGDGCallao = functions.https.onRequest(async (request, respo
         response.status(503).json({ message: `${error}` });
     }
 });
+
+// Register assistants ai developer day
+exports.registerAssistantsGDGCallao = functions.https.onRequest(async (request, response) => {
+    try {
+        corsHandler(request, response, async () => {
+            const categoriesRef = db.collection('assistants-callao');
+            const { name, lastName, email, nroDoc, city, company, role, interest, communityStandards, policy, isSubscribed, event, hash, date } = request.body;
+            const data = {
+                name,
+                lastName,
+                email,
+                nroDoc,
+                city,
+                company,
+                role,
+                interest,
+                communityStandards,
+                policy,
+                isSubscribed,
+                event,
+                hash,
+                date
+            };
+            await categoriesRef.doc(data.email).set(data);
+            const resp = { 'message': 'Registrado', 'hash': hash };
+            registerEmailGDGCallao(name, lastName, email, date, hash);
+            response.status(201).json(resp);
+        });
+    } catch (error) {
+        response.status(503).json({ message: `${error}` });
+    }
+});
+
+const registerEmailGDGCallao = async (name: string, lastName: string, email: string, date: string, hash: string) => {
+    const linkTicket = `https://ai-developer-day.gdgcallao.dev/confirmation/${hash}`;
+    const username = `${name} ${lastName}`;
+    try {
+        const data = {
+            date,
+            'to': email,
+            'message': {
+                'subject': 'Confirmación de registro: AI Developer Day Lima 2024',
+                'text': 'Confirmación de registro: AI Developer Day Lima 2024',
+                'html': `${emailTemplate(username, linkTicket)}`,
+            }
+        }
+        const categoriesRef = db.collection('email');
+        await categoriesRef.add(data);
+    } catch (error) {
+        throw new Error("Ocurrió un error al enviar el correo");
+
+    }
+}
+
+exports.getAssistantsGDGCallao = functions.https.onRequest((req, res) => {
+    try {
+        const email = req.query.email;
+        let docsSnap: any;
+        corsHandler(req, res, async () => {
+            const dailyFoodRef = db.collection('assistants-callao');
+            docsSnap = await dailyFoodRef
+                .where('email', '==', email)
+                .get();
+            const dailyFood = docsSnap.docs.map((doc: any) => doc.data());
+            res.json(dailyFood);
+        });
+    } catch (error) {
+        res.status(404).json({ error: 'No está registrado.' });
+    }
+});
+
