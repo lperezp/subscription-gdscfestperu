@@ -26,7 +26,7 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                 bgcolor="#FFFFFF"> </td>
                         </tr>
                         <tr>
-                            <td style="background: url(https://i.ibb.co/H75rFnP/dots.jpg);background-repeat: no-repeat;width: 100%;font-size: 0;line-height: 0;color: #ffffff;text-align: center;background-size: cover;" bgcolor="#1a73e8">
+                            <td style="background: url(https://i.ibb.co/kqmqGbn/Frame-17.png);background-repeat: no-repeat;width: 100%;font-size: 0;line-height: 0;color: #ffffff;text-align: center;background-size: cover;" bgcolor="#1a73e8">
                                 <table
                                     style="width: 100%; margin: 0px; border-collapse: collapse; color: rgb(255, 255, 255); text-align: center; height: 522.304px;"
                                     role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -45,19 +45,21 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                             <td class="m_-2259358181362946609fs64"
                                                 style="font: 400 64px / 78px 'Google Sans', Arial, sans-serif; height: 85px;">
                                                 <span style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;color: #ffffff">¡Ya estás dentro!</span>
+                                                        style="vertical-align: inherit;color: #ffffff"></span>
                                                 </span>
                                             </td>
                                         </tr>
                                         <tr style="height: 74.2969px;">
                                             <td class="m_-2259358181362946609fs28"
                                                 style="font: 400 28px / 34px 'Google Sans', Arial, sans-serif; padding: 36px 0px 0px; height: 74.2969px;">
-                                                <span style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;color: #ffffff"> Gracias por registrarse</span>
-                                                </span><span style="vertical-align: inherit;color: #ffffff"><span
-                                                        style="vertical-align: inherit;color: #ffffff">en el</span></span><br><span
-                                                    style="vertical-align: inherit;color: #ffffff"> <span
-                                                        style="vertical-align: inherit;color: #ffffff">AI Developer Day. </span>
+                                                <span style="vertical-align: inherit;">
+                                                <span style="vertical-align: inherit;color: #ffffff"></span>
+                                                </span>
+                                                <span style="vertical-align: inherit;color: #ffffff">
+                                                    <span style="vertical-align: inherit;color: #ffffff"></span>
+                                                </span><br>
+                                                <span style="vertical-align: inherit;color: #ffffff">
+                                                    <span style="vertical-align: inherit;color: #ffffff"></span>
                                                 </span>
                                             </td>
                                         </tr>
