@@ -45,7 +45,7 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                             <td class="m_-2259358181362946609fs64"
                                                 style="font: 400 64px / 78px 'Google Sans', Arial, sans-serif; height: 85px;">
                                                 <span style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;">¡Ya estás dentro!</span>
+                                                        style="vertical-align: inherit;color: #ffffff">¡Ya estás dentro!</span>
                                                 </span>
                                             </td>
                                         </tr>
@@ -53,11 +53,11 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                             <td class="m_-2259358181362946609fs28"
                                                 style="font: 400 28px / 34px 'Google Sans', Arial, sans-serif; padding: 36px 0px 0px; height: 74.2969px;">
                                                 <span style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;"> Gracias por registrarse</span>
-                                                </span><span style="vertical-align: inherit;"><span
-                                                        style="vertical-align: inherit;">en el</span></span><br><span
-                                                    style="vertical-align: inherit;"> <span
-                                                        style="vertical-align: inherit;">AI Developer Day. </span>
+                                                        style="vertical-align: inherit;color: #ffffff"> Gracias por registrarse</span>
+                                                </span><span style="vertical-align: inherit;color: #ffffff"><span
+                                                        style="vertical-align: inherit;color: #ffffff">en el</span></span><br><span
+                                                    style="vertical-align: inherit;color: #ffffff"> <span
+                                                        style="vertical-align: inherit;color: #ffffff">AI Developer Day. </span>
                                                 </span>
                                             </td>
                                         </tr>
