@@ -26,7 +26,7 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                 bgcolor="#FFFFFF"> </td>
                         </tr>
                         <tr>
-                            <td style="background: url(https://i.ibb.co/kqmqGbn/Frame-17.png);background-repeat: no-repeat;width: 100%;font-size: 0;line-height: 0;color: #ffffff;text-align: center;background-size: cover;" bgcolor="#1a73e8">
+                            <td style="background: url(https://i.ibb.co/N9JRMFw/Frame-17.png);background-repeat: no-repeat;width: 100%;font-size: 0;line-height: 0;color: #ffffff;text-align: center;background-size: cover;" bgcolor="#1a73e8">
                                 <table
                                     style="width: 100%; margin: 0px; border-collapse: collapse; color: rgb(255, 255, 255); text-align: center; height: 522.304px;"
                                     role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
