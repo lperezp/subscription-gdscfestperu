@@ -26,19 +26,19 @@ export const emailTemplate = (username: string, linkTicket: string) =>
                                 bgcolor="#FFFFFF"> </td>
                         </tr>
                         <tr>
-                            <td style="background-color: #090D10; width: 100%; font-size: 0; line-height: 0; color: #ffffff; text-align: center;"
-                                bgcolor="#1a73e8">
+                            <td style="background: url(https://i.ibb.co/H75rFnP/dots.jpg);background-repeat: no-repeat;width: 100%;font-size: 0;line-height: 0;color: #ffffff;text-align: center;background-size: cover;" bgcolor="#1a73e8">
                                 <table
                                     style="width: 100%; margin: 0px; border-collapse: collapse; color: rgb(255, 255, 255); text-align: center; height: 522.304px;"
-                                    role="presentation" border="0" cellspacing="0" cellpadding="0" align="center"
-                                    bgcolor="#090D10">
+                                    role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
                                     <tbody>
                                         <tr style="height: 236.992px;">
                                             <td
                                                 style="font: 400 0px / 0 Arial; padding: 64px 0px 6px; height: 236.992px;">
-                                                <img class="CToWUd a6T" style="width: 640px; height: 237px;"
+                                                <a href="https://ai-developer-day.gdgcallao.dev/?utm_medium=email&amp;utm_source=events&amp;utm_campaign=confirm">
+                                                    <img class="CToWUd a6T" style="width: 640px; height: 237px;"
                                                     tabindex="0" src="https://i.ibb.co/HGjG3DQ/Banner-Mail.png" alt=""
-                                                    width="600" height="222" data-bit="iit">
+                                                    width="600" height="222" data-bit="iit" />
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr style="height: 85px;">
